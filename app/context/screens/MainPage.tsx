@@ -1,13 +1,14 @@
 ﻿import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { Ionicons } from '@expo/vector-icons';
 
 // SHOW PRODUCT
 const products = [
-    { id: '1', name: 'Dây đeo Labubu Size R Đen', price: '500.000đ', oldPrice: '800.000đ', rating: '4.5/5', image: 'https://via.placeholder.com/100' },
-    { id: '2', name: 'Dây đeo Labubu Size R Đen', price: '500.000đ', oldPrice: '800.000đ', rating: '4.5/5', image: 'https://via.placeholder.com/100' },
-    { id: '3', name: 'Dây đeo Labubu Size R Đen', price: '500.000đ', oldPrice: '800.000đ', rating: '4.5/5', image: 'https://via.placeholder.com/100' },
-    { id: '4', name: 'Dây đeo Labubu Size R Đen', price: '500.000đ', oldPrice: '800.000đ', rating: '4.5/5', image: 'https://via.placeholder.com/100' },
+    { id: '1', name: 'Dây đeo Labubu Size R Đen', price: '500.000đ', oldPrice: '800.000đ', rating: '4.5/5', image: 'https://th.bing.com/th/id/OIP.7YY6ZZhyGdm2fOl6ooeTGgHaHa?w=178&h=180&c=7&r=0&o=5&dpr=1.4&pid=1.7' },
+    { id: '2', name: 'Dây đeo Labubu Size R Đen', price: '500.000đ', oldPrice: '800.000đ', rating: '4.5/5', image: 'https://img.lazcdn.com/g/p/5ab0191783ebaa302ef6a5b605b09603.jpg_720x720q80.jpg' },
+    { id: '3', name: 'Dây đeo Labubu Size R Đen', price: '500.000đ', oldPrice: '800.000đ', rating: '4.5/5', image: 'https://prod-america-res.popmart.com/default/20231215_094938_254780__1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp' },
+    { id: '4', name: 'Dây đeo Labubu Size R Đen', price: '500.000đ', oldPrice: '800.000đ', rating: '4.5/5', image: 'https://otakustore.vn/image/cache/catalog/2024/01/the-monsters-labubu-time-to-chill-series-vinyl-doll-pop-mart-3-1500x1500.jpg' },
 ];
 
 export default function HomeScreen() {
@@ -20,10 +21,6 @@ export default function HomeScreen() {
             {/* Navigation Bar */}
             <View style={styles.navbar}>
                 <View style={styles.navItems}>
-                    <TouchableOpacity style={styles.navButton}><Text style={styles.navText}>Home</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.navButton}><Text style={styles.navText}>Product</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.navButton}><Text style={styles.navText}>Exchange Service</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.navButton}><Text style={styles.navText}>Request</Text></TouchableOpacity>
                 </View>
                 <View style={styles.authButtons}>
                     <TouchableOpacity style={styles.loginButton}><Text style={styles.buttonText}>Login</Text></TouchableOpacity>
@@ -74,11 +71,19 @@ export default function HomeScreen() {
                         <Text style={styles.productPrice}>{item.price}</Text>
                         <Text style={styles.rating}>{item.rating} ⭐</Text>
                         <TouchableOpacity style={styles.buyButton}><Text style={styles.buttonText}>Mua ngay</Text></TouchableOpacity>
+                        <TouchableOpacity style={styles.buyButton}><Text style={styles.buttonText}>Thêm vào giỏ hàng</Text></TouchableOpacity>
                     </View>
                 )}
             />
-            <View style={styles.footer}>
-                <Text style={styles.footerText}>Công ty TNHH XYZ</Text>
+            {/* Bottom Navigation */}
+            <View style={styles.bottomNav}>
+                <TouchableOpacity style={styles.navItem}><Ionicons name="home" size={24} color="white" /><Text style={styles.navText}>Home</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.navItem}><Ionicons name="search" size={24} color="white" /><Text style={styles.navText}>Search</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.navItem}><Ionicons name="swap-horizontal" size={24} color="white" /><Text style={styles.navText}>Exchange</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('UserProfile')}>
+                    <Ionicons name="person" size={24} color="white" />
+                    <Text style={styles.navText}>Profile</Text>
+                </TouchableOpacity>
             </View>
 
         </View>
@@ -96,7 +101,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '#FF69B4',
+        backgroundColor: '#007BFF',
         padding: 15,
     },
     navItems: {
@@ -114,13 +119,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     loginButton: {
-        backgroundColor: '#FF1493',
+        backgroundColor: '#1E90FF',
         padding: 10,
         borderRadius: 5,
         marginRight: 5,
     },
     signupButton: {
-        backgroundColor: '#C71585',
+        backgroundColor: '#1E90FF',
         padding: 10,
         borderRadius: 5,
     },
@@ -140,7 +145,7 @@ const styles = StyleSheet.create({
     subHeaderText: {
         fontSize: 16,
         textAlign: 'center',
-        color: '#666',
+        color: '#1E90FF',
         marginBottom: 10,
     },
     searchContainer: {
@@ -161,7 +166,7 @@ const styles = StyleSheet.create({
     },
     filterContainer: { alignSelf: 'flex-end', marginBottom: 10 },
     searchButton: {
-        backgroundColor: '#FF1493',
+        backgroundColor: '#1E90FF',
         padding: 10,
         borderRadius: 5,
     },
@@ -212,7 +217,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     buyButton: {
-        backgroundColor: '#FF1493',
+        backgroundColor: '#1E90FF',
         padding: 10,
         borderRadius: 5,
     },
@@ -235,7 +240,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     filterButton: {
-        backgroundColor: '#FF1493',
+        backgroundColor: '#1E90FF',
         padding: 10,
         borderRadius: 5,
         alignSelf: 'flex-end',
@@ -254,6 +259,18 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 16,
         fontWeight: 'bold',
+    },
+    bottomNav: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        backgroundColor: '#007BFF',
+        padding: 15,
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+    },
+    navItem: {
+        alignItems: 'center',
     },
 
 });

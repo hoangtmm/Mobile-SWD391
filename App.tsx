@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+﻿import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { AuthProvider, useAuth } from './app/context/AuthContext';
 import { NavigationContainer } from '@react-navigation/native';
