@@ -5,19 +5,6 @@ import { StatusBar } from 'expo-status-bar';
 export default function ProductDetailScreen() {
     return (
         <ScrollView style={styles.container}>
-            <View style={styles.navbar}>
-                <View style={styles.navItems}>
-                    <TouchableOpacity style={styles.navButton}><Text style={styles.navText}>Home</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.navButton}><Text style={styles.navText}>Product</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.navButton}><Text style={styles.navText}>Exchange Service</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.navButton}><Text style={styles.navText}>Request</Text></TouchableOpacity>
-                </View>
-                <View style={styles.authButtons}>
-                    <TouchableOpacity style={styles.loginButton}><Text style={styles.buttonText}>Login</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.signupButton}><Text style={styles.buttonText}>Sign Up</Text></TouchableOpacity>
-                </View>
-            </View>
-            <StatusBar style="auto" />
 
             {/* Header Navigation */}
             <TouchableOpacity style={styles.backButton} >
@@ -68,7 +55,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     backButton: {
-        backgroundColor: '#FF00AA',
+        backgroundColor: '#1E90FF',
         padding: 10,
         borderRadius: 5,
         alignSelf: 'flex-end',
